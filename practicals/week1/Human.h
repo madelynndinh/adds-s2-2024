@@ -11,6 +11,7 @@ public:
     ~Human();
     char makeMove();
     void setName(string name);
+    void setMove();
     string getName();
 };
 

@@ -14,5 +14,7 @@ public:
 
     virtual char makeMove()=0;
     virtual string getName()=0;
+    virtual void setMove()=0;
+    virtual void setName(string name)=0;
 };
 #endif

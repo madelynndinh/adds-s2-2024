@@ -14,3 +14,12 @@ Computer::~Computer()
     };
     string Computer::getName(){
     return this->name;};
+
+        void Computer::setMove()
+        {
+            this->move = 'R';
+        };
+    void Computer::setName(string name)
+    {
+        this->name = name;
+    };

@@ -10,6 +10,8 @@ public:
     ~Computer();
     char makeMove();
     string getName();
+    void setMove();
+    void setName(string name);
 };
 #endif
 
