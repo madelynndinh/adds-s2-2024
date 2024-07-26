@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 using namespace std;
+
 class Player
 {
 protected:
@@ -14,7 +15,7 @@ public:
 
     virtual char makeMove()=0;
     virtual string getName()=0;
-    virtual void setMove()=0;
+    virtual void setMove(char move)=0;
     virtual void setName(string name)=0;
 };
 #endif

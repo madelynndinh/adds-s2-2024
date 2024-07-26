@@ -1,6 +1,8 @@
 #ifndef HUMAN_H
 #define HUMAN_H
 #include "Player.h"
+#include "Computer.h"
+#include "Referee.h"
 class Human: public Player
 {
 private:
@@ -8,10 +10,10 @@ private:
 public:
     Human();
     Human(string name, char move);
-    ~Human();
+
     char makeMove();
     void setName(string name);
-    void setMove();
+    void setMove(char move);
     string getName();
 };
 

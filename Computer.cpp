@@ -5,17 +5,13 @@ Computer::Computer(/* args */)
     this->move = 'R';
 }
 
-Computer::~Computer()
-{
-}
-
     char Computer::makeMove(){
     return this->move;
     };
     string Computer::getName(){
     return this->name;};
 
-        void Computer::setMove()
+        void Computer::setMove(char move)
         {
             this->move = 'R';
         };

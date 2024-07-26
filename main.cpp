@@ -7,7 +7,6 @@ int main()
 {
     Player* player1 = new Human();
     player1->setName("Mei");
-    player1->setMove();
     Player* player2 = new Computer();
     Referee referee;
     Player* winner = referee.refGame(player1, player2);

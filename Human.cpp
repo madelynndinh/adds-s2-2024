@@ -18,13 +18,10 @@ return this->move;
 void Human::setName(string name){
 this->name = name;
 }
-void Human::setMove(){
-    char move;
-
+void Human::setMove(char move){
 bool validMove = true;
 while (validMove)
-{std::cout<<"Enter move: ";
-std::cin>>move;
+{
     if (move=='S' || move=='P' || move=='R')
 {
     this->move = move;
