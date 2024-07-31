@@ -1,36 +1,32 @@
 #include "Human.h"
-Human::Human(/* args */)
-{
-    this->name = "Human";
-    this->move = ' ';
+
+#include "Move.h"
+#include "MoveFactory.h"
+Human::Human(/* args */) {
+  this->name = "Human";
+  this->move = nullptr;
 }
-Human::Human(string name, char move)
-{
-    this->name = name;
-    this->move = move;
+Human::Human(string name) {
+  this->name = name;
+  this->move = nullptr;
 }
 
-  char Human::makeMove()
+Move* Human::makeMove() { return this->move; };
+
+void Human::setName(string name) { this->name = name; }
+
+void Human::setMove(Move* move) {
+  string moveName;
+  if (move==nullptr)
   {
-return this->move;
-  };
-
-void Human::setName(string name){
-this->name = name;
-}
-void Human::setMove(char move){
-bool validMove = true;
-while (validMove)
+  std::cout << "Enter move: ";
+  std::cin >> moveName;}
+else
 {
-    if (move=='S' || move=='P' || move=='R')
-{
-    this->move = move;
-    validMove = false;
-}
+  moveName == move->getName();
 }
 
-}
-
-string Human::getName(){
-return this->name;
+  this->move = MoveFactory::getMove(moveName);
 };
+
+string Human::getName() { return this->name; };

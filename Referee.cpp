@@ -1,27 +1,20 @@
 
 #include "Referee.h"
 
-Referee::Referee(/* args */)
-{
-}
- Player* Referee::refGame(Player* player1, Player* player2)
-{
-    char move;
-    std::cout<<"Enter move: ";
-std::cin>>move;
-   player1->setMove(move);
-    if (player1->makeMove()=='S')
-    {
-        return player2;
-    }
-    if (player1->makeMove()=='P')
-    {
-        return player1;
-    }
-    else
-    {
-        return nullptr;
-    }
-    
-    
+#include "Move.h"
+#include "Player.h"
+
+Referee::Referee(/* args */) {}
+Player* Referee::refGame(Player* player1, Player* player2) {
+  Move* m1 = player1->makeMove();
+  Move* m2 = player2->makeMove();
+  Move move;
+  Move* winnerMove = move.beats(m1, m2);
+  if (winnerMove == nullptr) {
+    return nullptr;
+  } else if (winnerMove == m1) {
+    return player1;
+  } else {
+    return player2;
+  }
 };

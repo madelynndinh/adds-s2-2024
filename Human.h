@@ -1,20 +1,20 @@
 #ifndef HUMAN_H
 #define HUMAN_H
-#include "Player.h"
 #include "Computer.h"
+#include "Move.h"
+#include "Player.h"
 #include "Referee.h"
-class Human: public Player
-{
-private:
-    /* data */
-public:
-    Human();
-    Human(string name, char move);
+class Human : public Player {
+ private:
+  /* data */
+ public:
+  Human();
+  Human(string name);
 
-    char makeMove();
-    void setName(string name);
-    void setMove(char move);
-    string getName();
+  Move* makeMove();
+  void setName(string name);
+  void setMove(Move* move);
+  string getName();
 };
 
 #endif

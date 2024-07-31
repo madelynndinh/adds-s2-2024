@@ -1,21 +1,12 @@
 #include "Computer.h"
-Computer::Computer(/* args */)
-{
-    this->name = "Computer";
-    this->move = 'R';
+#include "MoveFactory.h"
+#include "Rock.h"
+Computer::Computer(/* args */) {
+  this->name = "Computer";
+  this->move = MoveFactory::getMove("Rock");
 }
 
-    char Computer::makeMove(){
-    return this->move;
-    };
-    string Computer::getName(){
-    return this->name;};
+Move* Computer::makeMove() { return this->move; };
+void Computer::setMove(Move* move) { this->move = move; };
 
-        void Computer::setMove(char move)
-        {
-            this->move = 'R';
-        };
-    void Computer::setName(string name)
-    {
-        this->name = name;
-    };
+string Computer::getName() { return this->name; };

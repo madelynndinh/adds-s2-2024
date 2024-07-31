@@ -1,19 +1,17 @@
 #ifndef COMPUTER_H
 #define COMPUTER_H
-#include "Player.h"
 #include "Human.h"
+#include "Move.h"
+#include "Player.h"
 #include "Referee.h"
-
-class Computer: public Player
-{
-private:
-    /* data */
-public:
-    Computer(/* args */);
-    char makeMove();
-    string getName();
-    void setMove(char move);
-    void setName(string name);
+#include "Rock.h"
+class Computer : public Player {
+ private:
+  /* data */
+ public:
+  Computer(/* args */);
+  Move* makeMove();
+  string getName();
+  void setMove(Move* move);
 };
 #endif
-
