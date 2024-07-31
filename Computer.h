@@ -13,5 +13,6 @@ class Computer : public Player {
   Move* makeMove();
   string getName();
   void setMove(Move* move);
+  void setName(string name);
 };
 #endif

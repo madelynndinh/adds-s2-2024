@@ -10,3 +10,4 @@ Move* Computer::makeMove() { return this->move; };
 void Computer::setMove(Move* move) { this->move = move; };
 
 string Computer::getName() { return this->name; };
+void Computer::setName(string name){this->name = name;}

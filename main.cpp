@@ -4,10 +4,10 @@
 #include "Player.h"
 #include "Referee.h"
 int main() {
-  Player* player1 = new Human();
-  player1->setMove();
-  Player* player2 = new Human();
-  player2->setMove();
+  Player* player1 = new Human("Player1");
+  player1->setMove(nullptr);
+//   Player* player2 = new Human("Player2");
+Player* player2 = new Computer();
   Referee referee;
   Player* winner = referee.refGame(player1, player2);
   if (winner == nullptr) {

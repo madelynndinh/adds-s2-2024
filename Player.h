@@ -12,8 +12,8 @@ class Player {
   Move* move;
 
  public:
-  Player(/* args */);
-  ~Player();
+  Player(/* args */){};
+  ~Player(){};
 
   virtual Move* makeMove() = 0;
   virtual string getName() = 0;

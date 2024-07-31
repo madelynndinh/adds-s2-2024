@@ -23,7 +23,7 @@ void Human::setMove(Move* move) {
   std::cin >> moveName;}
 else
 {
-  moveName == move->getName();
+  moveName = move->getName();
 }
 
   this->move = MoveFactory::getMove(moveName);
