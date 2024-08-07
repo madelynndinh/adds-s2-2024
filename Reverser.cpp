@@ -26,6 +26,10 @@ int Reverser::reverseDigit(int value) {
 };
 
 int Reverser::reverseDigit(int value, int reversed = 0) {
+  //check valid input
+  if (value < 0) {
+	  return -1;
+  }
   // base case;
   if (value == 0) {
     return reversed;
