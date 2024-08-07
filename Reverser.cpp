@@ -21,6 +21,9 @@ int Reverser::reverseDigitHelper(int value, int& reversed) {
 
 int Reverser::reverseDigit(int value) {
   int reversed = 0;
+  if (value < 0) {
+	  return -1;
+  }
   reversed = reverseDigitHelper(value, reversed);
   return reversed;
 };
