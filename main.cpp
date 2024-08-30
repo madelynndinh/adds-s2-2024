@@ -13,7 +13,6 @@ int main()
     std::istringstream iss (stringvalues);
     int number;
     std::vector<int> array;
-    cout<< stringvalues << endl;
 
     while (iss >> number ) 
    {
@@ -23,7 +22,7 @@ int main()
     BubbleSort bubbleSort;
     vector<int> result = bubbleSort.sort(array);
      RecursiveBinarySearch recursiveBinarySearch;
-     if (recursiveBinarySearch.search(array,1)==1)
+     if (recursiveBinarySearch.search(result,1)==1)
      {
         cout<<"true"<<endl;
      }

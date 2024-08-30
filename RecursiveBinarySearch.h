@@ -11,7 +11,7 @@ private:
 public:
     RecursiveBinarySearch(/* args */){};
     bool search(std::vector<int> array, int target);
-    bool searchHelper(std::vector<int> array, int start, int end, int target);
+    bool searchHelper(std::vector<int>& array, int start, int end, int target);
 
 };
 #endif

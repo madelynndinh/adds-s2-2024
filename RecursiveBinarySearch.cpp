@@ -4,7 +4,7 @@
 
 using namespace std;
 
-bool RecursiveBinarySearch::searchHelper(std::vector<int> array, int start,
+bool RecursiveBinarySearch::searchHelper(std::vector<int>& array, int start,
                                          int end, int target) {
   if (start > end) {
     return false;
