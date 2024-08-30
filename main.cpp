@@ -21,21 +21,20 @@ int main()
     }
   
     BubbleSort bubbleSort;
-    bubbleSort.sort(array);
+    vector<int> result = bubbleSort.sort(array);
      RecursiveBinarySearch recursiveBinarySearch;
-     if (recursiveBinarySearch.search(array,0,array.size()-1,1)==1)
+     if (recursiveBinarySearch.search(array,1)==1)
      {
         cout<<"true"<<endl;
      }
      else
      {
-        /* code */
         cout<<"false"<<endl;
      }
      
-    for (int i = 0; i < array.size(); i++)
+    for (int i = 0; i < result.size(); i++)
     {
-        cout << array.at(i) << endl;
+        cout << result.at(i) << endl;
     }
     return 0;
 }
