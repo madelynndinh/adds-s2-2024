@@ -20,15 +20,19 @@ int main()
     array.push_back(number);
     }
   
-  for (int i = 0; i < array.size(); i++)
-    {
-        cout << array.at(i) << endl;
-    }
-
     BubbleSort bubbleSort;
     bubbleSort.sort(array);
      RecursiveBinarySearch recursiveBinarySearch;
-    cout<<std::to_string(recursiveBinarySearch.search(array,0,array.size()-1,1))<<endl;
+     if (recursiveBinarySearch.search(array,0,array.size()-1,1)==1)
+     {
+        cout<<"true"<<endl;
+     }
+     else
+     {
+        /* code */
+        cout<<"false"<<endl;
+     }
+     
     for (int i = 0; i < array.size(); i++)
     {
         cout << array.at(i) << endl;
