@@ -46,3 +46,8 @@ sort(array, start,partitioning_index -1);
 sort(array, partitioning_index +1, end);
 return array;
 }
+
+vector<int> QuickSort::sort(vector<int>& array)
+{
+    return sort(array, 0, array.size()-1);
+}
