@@ -2,28 +2,36 @@
 #include "BubbleSort.h"
 #include "QuickSort.h"
 #include "RecursiveBinarySearch.h"
+#include <iostream>     // std::cout
+#include <sstream>      // std::istringstream
+#include <string>       // std::string
 
 int main()
 {
-    vector<int> array1 = {1, 3 ,5, 4, -5, 100, 7777 ,2014};
-    vector<int> array2 = {0, 3, 5, 4, -5, 100, 7777, 2014};
-    BubbleSort bubbleSort;
-    bubbleSort.sort(array1);
-    for (int i = 0; i < array1.size(); i++)
-    {
-        cout << array1.at(i) << endl;
-    }
-    
-    QuickSort quickSort;
-    quickSort.sort(array2,0,array2.size()-1);
-    for (int i = 0; i < array2.size(); i++)
-    {
-        cout << array2.at(i) << endl;
-    }
-    
-    RecursiveBinarySearch recursiveBinarySearch;
-    cout<<recursiveBinarySearch.search(array1,0,array1.size()-1,1)<<endl;
-    cout<<recursiveBinarySearch.search(array2,0,array2.size()-1,1)<<endl;
+    std::string stringvalues;
+    std::getline (std::cin,stringvalues);
+    std::istringstream iss (stringvalues);
+    int number;
+    std::vector<int> array;
+    cout<< stringvalues << endl;
 
+    while (iss >> number ) 
+   {
+    array.push_back(number);
+    }
+  
+  for (int i = 0; i < array.size(); i++)
+    {
+        cout << array.at(i) << endl;
+    }
+
+    BubbleSort bubbleSort;
+    bubbleSort.sort(array);
+     RecursiveBinarySearch recursiveBinarySearch;
+    cout<<std::to_string(recursiveBinarySearch.search(array,0,array.size()-1,1))<<endl;
+    for (int i = 0; i < array.size(); i++)
+    {
+        cout << array.at(i) << endl;
+    }
     return 0;
 }

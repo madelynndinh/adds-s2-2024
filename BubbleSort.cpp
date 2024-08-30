@@ -1,8 +1,9 @@
 #include "BubbleSort.h"
 #include "Sort.h"
 
- void BubbleSort::sort(vector<int>& array)
+vector<int> BubbleSort::sort(vector<int>& array)
 {
+    vector<int> result;
     for (size_t i = array.size()-1; i >0; i--)
     {
         for (size_t j = 0; j < i; j++)
@@ -18,5 +19,5 @@
         }
         
     }
-    
+    return array;
 }

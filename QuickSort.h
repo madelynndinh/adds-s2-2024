@@ -11,7 +11,7 @@ private:
     /* data */
 public:
     QuickSort(){};
-void sort(vector<int>& array, int start, int end);
+vector<int> sort(vector<int>& array, int start, int end);
 
 };
 #endif

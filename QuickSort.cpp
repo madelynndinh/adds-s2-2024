@@ -3,12 +3,12 @@
 #include <iostream>
 
 
-void QuickSort::sort(vector<int>& array, int start, int end)
+vector<int> QuickSort::sort(vector<int>& array, int start, int end)
 {
 //Base case, nothign to sort
 if(start >= end)
 {
-        return;}
+        return array;}
 
 
 int pivot_index = start+2;
@@ -44,5 +44,5 @@ array.at(end) = temp;
 //sort left and right subarrays
 sort(array, start,partitioning_index -1);
 sort(array, partitioning_index +1, end);
-
+return array;
 }

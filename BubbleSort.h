@@ -11,7 +11,7 @@ private:
     /* data */
 public:
     BubbleSort(){};
-    void sort(vector<int>& array);
+    vector<int> sort(vector<int>& array);
 };
 
 #endif
