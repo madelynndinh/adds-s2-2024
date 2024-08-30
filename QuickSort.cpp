@@ -3,7 +3,7 @@
 #include <iostream>
 
 
-vector<int> QuickSort::sort(vector<int>& array, int start, int end)
+vector<int> QuickSort::sortHelper(vector<int>& array, int start, int end)
 {
 //Base case, nothign to sort
 if(start >= end)
@@ -42,12 +42,12 @@ array.at(partitioning_index) = array.at(end);
 array.at(end) = temp;
 
 //sort left and right subarrays
-sort(array, start,partitioning_index -1);
-sort(array, partitioning_index +1, end);
+sortHelper(array, start,partitioning_index -1);
+sortHelper(array, partitioning_index +1, end);
 return array;
 }
 
 vector<int> QuickSort::sort(vector<int>& array)
 {
-    return sort(array, 0, array.size()-1);
+    return sortHelper(array, 0, array.size()-1);
 }

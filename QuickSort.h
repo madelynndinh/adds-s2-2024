@@ -12,7 +12,7 @@ private:
 public:
     QuickSort(){};
     vector<int> sort(vector<int>& array);
-    vector<int> sort(vector<int>& array, int start, int end);
+    vector<int> sortHelper(vector<int>& array, int start, int end);
 
 };
 #endif
