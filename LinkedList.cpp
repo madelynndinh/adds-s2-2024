@@ -1,0 +1,163 @@
+
+#include "LinkedList.h"
+#include <iostream>
+LinkedList::LinkedList(){
+    head = nullptr;
+}
+
+LinkedList::LinkedList(int* array, int len)
+    
+   { unsigned int position = 0;
+
+    head = new Node(array[position], nullptr);
+    position++;
+    
+    while (position < len) { 
+        std::cout<<"start: "<<position<<std::endl;
+        Node *prevNode = traverse(position-1);
+        std::cout<<"prevNode: "<<prevNode->data<<std::endl;
+        std::cout<<"array: "<<array[position]<<std::endl;
+
+        Node *newNode  = new Node(array[position], nullptr);
+        prevNode->link = newNode;
+        std::cout<<"newNode: "<<newNode->data<<std::endl; 
+        position++;
+    }
+    
+    
+    
+}
+LinkedList::~LinkedList(){
+    while (head != nullptr)
+    {
+        deletePosition(1);
+    }
+}
+void LinkedList::insertPosition(int pos, int newNum)
+{   int count = this->count();
+    if(pos <= 1)
+    {
+        head = new Node(newNum, head);
+        return;
+    }
+   else if (pos>count)
+   {
+        Node *prevNode = traverse(count-1);
+        Node *newNode  = new Node(newNum, nullptr);
+        prevNode->link = newNode;
+        
+   }
+   else
+   {
+    //if inserting between two nodes
+    Node *prevNode = traverse(pos-1);
+    // if inserting out of bounds, abort
+    if (prevNode == nullptr) {
+        return;
+    }
+
+    Node *newNode  = new Node(newNum, prevNode->link);
+    prevNode->link = newNode;
+    
+   }
+   
+    
+}
+
+
+bool LinkedList::deletePosition(int pos)
+{
+
+Node* previous = head;
+Node* current = head;
+if(pos >count())
+{
+    return false;
+}
+if (head = nullptr)
+{
+    return false;
+}
+
+else if (pos == 1)
+{
+    head = current->link;
+    delete current;
+    return true;
+}
+
+else
+{
+    while (pos != 1)
+    {
+        previous = current;
+        current = current->link;
+        pos--;
+    }
+    previous -> link = current -> link;
+    free(current);
+    current = NULL;
+}
+
+}
+
+int LinkedList::count() {
+    unsigned int count = 0;
+    Node* currNode = head; 
+    while (currNode != nullptr) { 
+        currNode = currNode->link; 
+        count++;
+    } 
+    
+    return count;
+}
+
+    int LinkedList::search(int target)
+    {unsigned int position = 0;
+    Node* currNode = head; 
+
+    while (currNode != nullptr && position < count()) { 
+        if (currNode->data == target)
+        {
+              return position;
+        }
+        currNode = currNode->link; 
+        position++;
+    } 
+    return -1;
+    };
+
+    void  LinkedList::printList()
+    {
+        Node* currNode = head;
+
+        while (currNode != nullptr) { 
+            std::cout << currNode->data << std::endl; 
+            currNode = currNode->link; 
+        } 
+        std::cout << std::endl;
+    };
+
+Node* LinkedList::traverse(unsigned int index)
+{
+    unsigned int position = 0;
+    Node* currNode = head;
+    while (currNode != nullptr && position < index) {
+        currNode = currNode->link;  
+        position++;
+    } 
+    return currNode;
+            
+        } 
+
+
+int LinkedList::get(int pos)
+{
+    if (pos > count())
+    {
+        return std::numeric_limits < int >::max();
+    }
+    
+    Node* currNode = traverse(pos);
+    return currNode->data;
+};
