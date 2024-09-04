@@ -13,14 +13,9 @@ LinkedList::LinkedList(int* array, int len)
     position++;
     
     while (position < len) { 
-        std::cout<<"start: "<<position<<std::endl;
         Node *prevNode = traverse(position-1);
-        std::cout<<"prevNode: "<<prevNode->data<<std::endl;
-        std::cout<<"array: "<<array[position]<<std::endl;
-
         Node *newNode  = new Node(array[position], nullptr);
         prevNode->link = newNode;
-        std::cout<<"newNode: "<<newNode->data<<std::endl; 
         position++;
     }
     
@@ -74,7 +69,7 @@ if(pos >count())
 {
     return false;
 }
-if (head = nullptr)
+if (head == nullptr)
 {
     return false;
 }
@@ -97,6 +92,7 @@ else
     previous -> link = current -> link;
     free(current);
     current = NULL;
+    return true;
 }
 
 }
@@ -132,10 +128,8 @@ int LinkedList::count() {
         Node* currNode = head;
 
         while (currNode != nullptr) { 
-            std::cout << currNode->data << std::endl; 
             currNode = currNode->link; 
         } 
-        std::cout << std::endl;
     };
 
 Node* LinkedList::traverse(unsigned int index)
