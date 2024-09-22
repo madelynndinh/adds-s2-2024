@@ -1,4 +1,4 @@
-#include "AutoComplete.h"
+#include "Autocomplete.h"
 #include <iostream>
 #include "PrefixMatcher.h"
 using namespace std;
@@ -13,10 +13,10 @@ int main() {
 
     vector<string> allWords = trie.getSuggestions("ba");
     
-    // cout << "All words in the Trie: " << endl;
-    // for (const string& word : allWords) {
-    //     cout << word << endl;
-    // }
+    cout << "All words in the Trie: " << endl;
+    for (const string& word : allWords) {
+        cout << word << endl;
+    }
     PrefixMatcher p;
     p.insert("1100110111", 1);
     p.insert("110011011", 2);
