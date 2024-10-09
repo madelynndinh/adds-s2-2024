@@ -1,36 +1,51 @@
+
 #include "DocumentManager.h"
 
-void DocumentManager::addDocument(string name, int id, int license_limit) {
-    nametoid[name] = id;
-
-    idtopatrons[id] = {license_limit, unordered_set<int>()};
+void DocumentManager ::addDocument(string name, int id, int license_limit) {
+  Document insertion;
+  insertion.name = name;
+  insertion.license_limit = license_limit;
+  insertion.borrowedNum = 0;
+  documentDict.insert({id, insertion});
+  nameIdDict.insert({name, id});
 }
 
-void DocumentManager::addPatron(int patronID) {
-    patrons.insert(patronID);
+void DocumentManager ::addPatron(int patronID) { patronInfo.insert(patronID); }
+
+int DocumentManager ::search(string name) {
+  unordered_map<string, int>::const_iterator got = nameIdDict.find(name);
+  if (got == nameIdDict.end()) {
+    return 0;
+  } else {
+    return got->second;
+  }
 }
 
-int DocumentManager::search(string name) {
-    if(nametoid.find(name) == nametoid.end())
-        return -1;
-    return nametoid[name];
+bool DocumentManager ::borrowDocument(int docid, int patronID) {
+  if (patronInfo.count(patronID)) {
+    Document *targetDoc = &(documentDict.at(docid));
+    if (targetDoc->license_limit > targetDoc->borrowedNum) {
+      targetDoc->borrowedNum++;
+      return true;
+    } else {
+      return false;
+    }
+  } else {
+    return false;
+  }
 }
 
-bool DocumentManager::borrowDocument(int docid, int patronID) {
-    if(docid < 0 || docid >= idtopatrons.size())
-        return false;
-    if(patrons.find(patronID) == patrons.end())
-        return false;
-    if(idtopatrons[docid].second.size() >= idtopatrons[docid].first)
-        return false;
-    idtopatrons[docid].second.insert(patronID);
-    return true;
-}
-
-void DocumentManager::returnDocument(int docid, int patronID) {
-    if(docid < 0 || docid >= idtopatrons.size())
+void DocumentManager ::returnDocument(int docid, int patronID) {
+  if (patronInfo.count(patronID)) {
+      Document *targetDoc = &(documentDict.at(docid));
+      if (targetDoc->borrowedNum > 0) {
+        targetDoc->borrowedNum--;
         return;
-    if(idtopatrons[docid].second.find(patronID) == idtopatrons[docid].second.end())
+      } else {
         return;
-    idtopatrons[docid].second.erase(patronID);
+      }
+
+  } else {
+    return;
+  }
 }
